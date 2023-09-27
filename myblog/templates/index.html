@@ -1,13 +1,18 @@
+{% load bootstrap5 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>blog</title>
+    {% bootstrap_css %}
 </head>
 <body>
     {% if posts_list %}
+    {% buttons %}
+        <button class="btn btn-primary">Submit</button>
+    {% endbuttons %}
     <ul>
     {% for post in posts_list %}
         <li><a href="#">
