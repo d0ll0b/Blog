@@ -1,3 +1,4 @@
+{% load static %}
 {% load bootstrap5 %}
 <!DOCTYPE html>
 <html lang="en">
@@ -7,12 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>blog</title>
     {% bootstrap_css %}
+    <link rel="stylesheet"  type="text/css" href="{% static 'css/all.css' %}">
 </head>
 <body>
+    <header class="container">
+        <ul class="nav nav-fill">
+            <li class="nav-item"><a href="#" class="nav-link active">首頁</a></li>
+            <li class="nav-item"><a href="#" class="nav-link active">標籤</a></li>
+            <li class="nav-item"><a href="#" class="nav-link active">個人簡介</a></li>
+            <li class="nav-item"><a href="#" class="nav-link active">登入</a></li>
+        </ul>
+    </header>
     {% if posts_list %}
-    {% buttons %}
-        <button class="btn btn-primary">Submit</button>
-    {% endbuttons %}
     <ul>
     {% for post in posts_list %}
         <li><a href="#">
