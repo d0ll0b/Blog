@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "myblog.apps.MyblogConfig",
-    "bootstrap5"
+    "bootstrap5",
+    "pipeline",
+    "sass_processor"
 ]
 
 MIDDLEWARE = [
@@ -108,19 +110,29 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
-STATIC_URL = "static/"
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+PIPELINE = {
+    'STYLESHEETS': {
+        'main': {
+            'source_filenames': (
+                'scss/all.scss',
+            ),
+            'output_filename': 'css/all.css',
+        },
+    },
+}
+
+SASS_PROCESSOR_ROOT = STATICFILES_DIRS[0]
+SASS_PROCESSOR_INCLUDE_DIRS = [
+    os.path.join(SASS_PROCESSOR_ROOT, 'scss'),
 ]
+
+
