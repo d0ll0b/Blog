@@ -11,24 +11,22 @@
     <link rel="stylesheet"  type="text/css" href="{% static 'css/all.css' %}">
 </head>
 <body>
-    <header class="container">
-        <ul class="nav nav-fill">
-            <li class="nav-item"><a href="#" class="nav-link active">首頁</a></li>
-            <li class="nav-item"><a href="#" class="nav-link active">標籤</a></li>
-            <li class="nav-item"><a href="#" class="nav-link active">個人簡介</a></li>
-            <li class="nav-item"><a href="#" class="nav-link active">登入</a></li>
-        </ul>
+    <header>
+        {% include 'header.html' %}
     </header>
-    {% if posts_list %}
-    <ul>
-    {% for post in posts_list %}
-        <li><a href="#">
-            {{ post.title }}</a>
-        </li>
-    {% endfor %}
-    </ul>
-    {% else %}
-        <p>沒有文章可以顯示</p>
-    {% endif %}
+    <main>
+        {% if posts_list %}
+        <ul>
+        {% for post in posts_list %}
+            <li><a href="#">
+                {{ post.title }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+        {% else %}
+            <p>沒有文章可以顯示</p>
+        {% endif %}
+    </main>
+    
 </body>
 </html>

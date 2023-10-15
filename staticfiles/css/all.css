@@ -24,6 +24,8 @@ a {
 }
 
 header {
-  background-color: black;
   color: white;
+  position: fixed;
+  z-index: 1000;
+  background-color: black;
 }/*# sourceMappingURL=all.css.map */
